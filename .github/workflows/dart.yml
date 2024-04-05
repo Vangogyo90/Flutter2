@@ -1,0 +1,22 @@
+# pipeline.yml
+
+# Определение названия pipeline
+name: Flutter Code Style Check
+on:
+  push:
+    branches:
+      -main
+# Определение шагов pipeline
+jobs:
+  # Определение job для проверки стиля кода
+  check_code_style:
+    runs-on: windows-latest
+    # Определение шагов, которые должны быть выполнены в рамках данного job
+    steps:
+      # Шаг установки зависимостей
+    - name: Install dependencies
+      run: flutter pub get
+
+      # Шаг запуска анализатора стиля
+    - name: Check code style
+      run: flutter analyze
